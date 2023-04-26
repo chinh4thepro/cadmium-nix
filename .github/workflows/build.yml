@@ -26,6 +26,7 @@ jobs:
       run: |
         cd ~
         git clone https://github.com/chinh4thepro/cadmium.git
+        cd cadmium
         ./build-all debian-arm64.img 5g
     - name: Upload image
       uses: actions/upload-artifact@v3.1.2
