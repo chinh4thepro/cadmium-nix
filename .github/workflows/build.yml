@@ -22,5 +22,13 @@ jobs:
         rm -rf /home/runner/home-manager/home.nix
         cp $GITHUB_WORKSPACE/github-actions/builder-home/home-manager/home.nix ~/.config/home-manager/home.nix
         home-manager switch
-        exit 0
-
+    - name: Build Image
+      run: |
+        cd ~
+        git clone https://github.com/chinh4thepro/cadmium.git
+        ./build-all debian-arm64.img 5g
+    - name: Upload image
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        name: debian-arm64.img
+        path: debian-arm64.img

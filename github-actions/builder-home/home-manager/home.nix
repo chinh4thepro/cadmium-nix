@@ -35,6 +35,7 @@
       ubootTools
       lz4
       git
+      arch-install-scripts
 
     ];
 
