@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - uses: docker/setup-qemu-action@v2.1.0
     - uses: cachix/install-nix-action@v20
       with:
         nix_path: nixpkgs=channel:nixos-unstable
@@ -15,9 +16,7 @@ jobs:
       run: |
         nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
         nix-channel --update
-        echo $NIX_PATH
         export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
-        source /etc/profile.d/nix.sh 
         nix-shell '<home-manager>' -A install
         home-manager init
         rm -rf /home/runner/home-manager/home.nix
