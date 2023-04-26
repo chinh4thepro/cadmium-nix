@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 
 {
-    home = {
-      username = "runner";
-      homeDirectory = "/home/runner";
-      stateVersion = "22.11";
+  home = {
+    username = "runner";
+    homeDirectory = "/home/runner";
+    stateVersion = "22.11";
     
-      packages = with pkgs; [
+    packages = with pkgs; [
 
       # Stuff to build cadmium
       binutils
@@ -35,16 +35,15 @@
       lz4
       git
       arch-install-scripts
+   ];
+  };
 
-      ];
-
-    programs = {
-      home-manager = {
-        enable = true;
-      };
-      git = {
-        enable = true;
-      };
+  programs = {
+    home-manager = {
+      enable = true;
+    };
+    git = {
+      enable = true;
     };
   };
 }
