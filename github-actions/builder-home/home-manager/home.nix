@@ -17,7 +17,6 @@
       curl
       wget
       f2fs-tools
-      vboot_reference
       ncurses
       gawk
       flex

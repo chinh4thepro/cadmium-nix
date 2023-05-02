@@ -22,6 +22,7 @@ jobs:
         rm -rf /home/runner/home-manager/home.nix
         cp $GITHUB_WORKSPACE/github-actions/builder-home/home-manager/home.nix ~/.config/home-manager/home.nix
         home-manager switch
+        nix-env -iA nixpkgs.vboot_reference
     - name: Build Image
       run: |
         cd ~
