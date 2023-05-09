@@ -14,6 +14,7 @@ jobs:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
     - name: setup environment
       run: |
+        alias nixpkgs="nix-env -f '<nixpkgs>'"
         nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
         nix-channel --update
         sudo nix-channel --list
